@@ -1,10 +1,132 @@
-.App {
-  text-align: center;
+.theme-light {
+  --primary-bg-url: url("./img/bg-light.jpg");
+  --primary-text: #e89c38;
+  --primary-button: #e89c38;
+  --primary-button-text: #13121d;
+  --secondary-bg: #ecc99c;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.theme-dark {
+  --primary-bg-url: url("./img/bg-dark.jpg");
+  --primary-bg: #13121d;
+  --primary-text: #60aafa;
+  --primary-button: #033874;
+  --primary-button-text: #ffffff;
+  --secondary-bg: #052345;
+
+}
+
+body, html, #root{
+  height:100%;
+  width: 100vw;
+}
+
+.App{
+  padding: 2rem;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items: flex-start;
+  background-image: var(--primary-bg-url);
+  background-position: center;
+  background-size: cover;
+  color: var(--primary-text);
+  height: 100%;
+}
+
+span{
+  padding: 0.2rem 0.8rem;
+  background-color: var(  --primary-button);
+  color:var(--primary-button-text);
+  border-radius: 1rem;
+}
+.App img{
+  fill: #b6baf2!important;
+}
+
+
+.main-infos{
+  width: 100%;
+  height: 100%;
+}
+.icon-infos{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.c-icon_card{
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items: center;
+  width: 100%;
+  margin: 2rem 0rem;
+}
+
+.c-icon_card img{
+  width: 2rem;
+  margin-right:1.5rem;
+}
+
+
+.infos-hours{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items: center;
+  width: 100vw;
+  overflow: scroll;
+}
+
+.hour-weather{
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.c-search_bar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 14px;
+  background-color: var(--secondary-bg);
+  width: 100%;
+  color: #fff;
+  border-radius: 10px;
+  border: 1px solid var(--theme-tertiary-black12);
+  box-sizing: border-box;
+}
+
+.c-search_bar-icon{
+  background-image: url("./img/search.png");
+  background-position: center;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  padding: 1rem 1.5rem;
+  margin: 0px 10px 0px 0px;
+}
+
+.search-bar{
+  border: 0;
+  white: #fff;
+  background: none;
+  outline: none;
+  color: #fff;
+  font-family: var(--theme-font-text);
+  font-size: 15px;
+  width: 100%;
+}
+
+.c-search_bar button{
+  padding: 1rem;
+  border: none;
+  background: var(--primary-button);
+  color: var(--primary-button-text);
 }
 
 @media (prefers-reduced-motion: no-preference) {
