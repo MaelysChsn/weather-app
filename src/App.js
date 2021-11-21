@@ -12,7 +12,7 @@ function App() {
   var darkMode = false;
 
   const getAPI = (town) => {
-    fetch(`http://api.weatherapi.com/v1/forecast.json?key=236efda6221d4b70885210424211511&q=${town}&days=7&aqi=no&alerts=no`)
+    fetch(`http://api.weatherapi.com/v1/forecast.json?key=236efda6221d4b70885210424211511&q=${town}&days=10&aqi=no&alerts=no`)
       .then((response) => response.json())
       .then((json) => {
         setData(json);

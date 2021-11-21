@@ -2,8 +2,9 @@
   --primary-bg-url: url("./img/bg-light.jpg");
   --primary-text: #e89c38;
   --primary-button: #e89c38;
-  --primary-button-text: #13121d;
-  --secondary-bg: #ecc99c;
+  --primary-button-hover: #dd8a1d;
+  --primary-button-text: #fff;
+  --secondary-bg: #ffe3bf;
 
 }
 
@@ -12,6 +13,7 @@
   --primary-bg: #13121d;
   --primary-text: #60aafa;
   --primary-button: #033874;
+  --primary-button-hover: #004ea6;
   --primary-button-text: #ffffff;
   --secondary-bg: #052345;
 
@@ -22,11 +24,12 @@ body, html, #root{
   width: 100vw;
 }
 
+
 .App{
   padding: 2rem;
   display: flex;
   flex-direction:column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: flex-start;
   background-image: var(--primary-bg-url);
   background-position: center;
@@ -77,9 +80,39 @@ span{
   flex-direction: row;
   justify-content:space-around;
   align-items: center;
-  width: 100vw;
+
+  overflow: hidden;
+  width: 150vw;
+}
+
+.infos-week{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items: center;
+}
+
+.week-weather{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.infos-hours::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.infos-hours {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.c-day{
   overflow: scroll;
 }
+
 
 .hour-weather{
   display: flex;
@@ -87,16 +120,17 @@ span{
   justify-content:flex-start;
   align-items: center;
   margin-right: 1rem;
+
 }
 
 .c-search_bar{
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 8px 14px;
+  padding: 0px 0px 0px 14px;
   background-color: var(--secondary-bg);
   width: 100%;
-  color: #fff;
+  color: var(--primary-text);
   border-radius: 10px;
   border: 1px solid var(--theme-tertiary-black12);
   box-sizing: border-box;
@@ -113,10 +147,9 @@ span{
 
 .search-bar{
   border: 0;
-  white: #fff;
   background: none;
   outline: none;
-  color: #fff;
+  color: var(--primary-text);
   font-family: var(--theme-font-text);
   font-size: 15px;
   width: 100%;
@@ -127,6 +160,14 @@ span{
   border: none;
   background: var(--primary-button);
   color: var(--primary-button-text);
+  cursor: pointer;
+  border-radius: 0rem 0.5rem 0.5rem 0rem;
+  transition: 0.3s ease-in-out;
+}
+
+.c-search_bar button:hover{
+
+  background: var(--primary-button-hover);
 }
 
 @media (prefers-reduced-motion: no-preference) {
