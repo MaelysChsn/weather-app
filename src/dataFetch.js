@@ -13,6 +13,7 @@ function DataFetch({data}) {
   var weeks = [];
 
   data.forecast.forecastday.map((item) => {
+    console.log(item);
     var number = today.getHours();
     if(today.getHours().toString().length === 1){
       number = '0'+ today.getHours().toString();
@@ -28,17 +29,15 @@ function DataFetch({data}) {
       weeks.push(item)
     }
 
-    if(day.length < 24){
+    if(day.length < 25){
       if(item.date === today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + (today.getDate()+1)){
         item.hour.map(element => {
-          if(day.length < 24){
+          if(day.length < 25){
             day.push(element)
           }
         })
       }
     }
-
-    console.log(day.length);
   })
 
   return (
@@ -69,38 +68,32 @@ function DataFetch({data}) {
 
           <div className="day-infos">
             <p>Today</p>
-            <div className="infos-hours">
-              {
-                day.map(item => {
-                  console.log(item);
-                  var number = today.getHours();
-                  if(today.getHours().toString().length === 1){
-                    number = '0'+ today.getHours().toString();
-                  }
-                  if(item.time.substr(-5, 2) >= number){
-                    return (
-                      <div className="hour-weather">
-                        <p>{item.time.substr(-5, 2)}h</p>
-                        <img src={item.condition.icon}/>
-                        <p>{Math.round(item.temp_c)}°</p>
-                      </div>
-                    )
-                  }
-                  return null;
-                })
-              }
+            <div className="c-day">
+              <div className="infos-hours">
+                {
+                  day.map(item => {
+                      return (
+                        <div className="hour-weather">
+                          <p>{item.time.substr(-5, 2)}h</p>
+                          <img src={item.condition.icon}/>
+                          <p>{Math.round(item.temp_c)}°</p>
+                        </div>
+                      )
+                  })
+                }
+              </div>
             </div>
           </div>
 
           <div className="week-infos">
             <p>Météo de la semaine</p>
-            <div className="infos-hours">
+            <div className="infos-week">
               {
                 weeks.map(item => {
                   let date = new Date(item.date);
                   let day = date.toLocaleString('fr-FR', {weekday: 'long'});
                   return (
-                    <div className="hour-weather">
+                    <div className="week-weather">
                       <p>{day}</p>
                       <img src={item.day.condition.icon}/>
                       <p>{Math.round(item.day.mintemp_c)}° / {Math.round(item.day.maxtemp_c)}°</p>
